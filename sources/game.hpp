@@ -3,9 +3,10 @@
 #pragma once
 namespace ariel{
 class Game{
+    
+    public:
     Player p1;
     Player p2;
-    public:
     Game(Player p1, Player p2){
         this->p1 = Player(p1.name);
         this->p2 =  Player(p2.name);
