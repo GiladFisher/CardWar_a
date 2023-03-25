@@ -53,19 +53,26 @@ TEST_CASE("Test Game End"){ // checks if the game ends when one of the players h
 TEST_CASE("Test Game Turn"){ // if a turn is played correctly
     Player p1("p1");
     Player p2("p2");
+
     Game g(p1, p2);
 
     g.playTurn();
 
     if(g.p1.stacksize() < 26){
         CHECK(g.p2.stacksize() > 26);
+        CHECK(g.p2.cardesTaken() > 0);
         CHECK(g.p1.stacksize() < 26);
+        CHECK(g.p1.cardesTaken() == 0);
     }
 
     else{
         CHECK(g.p1.stacksize() > 26);
+        CHECK(g.p1.cardesTaken() > 0);
         CHECK(g.p2.stacksize() < 26);
+        CHECK(g.p2.cardesTaken() == 0);
     }
     
 }
+
+
 
