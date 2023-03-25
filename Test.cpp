@@ -71,7 +71,13 @@ TEST_CASE("Test Game Turn"){ // if a turn is played correctly
         CHECK(g.p2.stacksize() < 26);
         CHECK(g.p2.cardesTaken() == 0);
     }
-    
+}
+TEST_CASE("Cards"){
+    Card c1(1, "hearts");
+    CHECK(c1.getValue() == 1);
+    CHECK( c1.getSuit() == "hearts");
+    CHECK_THROWS(new Card(14, "hearts"));// should throw an error if the value is not between 1-13
+    CHECK_THROWS(new Card(0, "hearts"));// should throw an error if the value is not between 1-13
 }
 
 
